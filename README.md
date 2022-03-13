@@ -6,5 +6,5 @@ Icono de carpeta obtenido de : https://icon-icons.com/es/icono/azul-descargar-al
 Recomiendo descargar el zip y los dos archivos que en el se encuentran en una carpeta, ya que actualmente esta como una aplicacion portable.
 
 <h2>VERSION ALPHA</h2>
-Notas: que permite eliminar todos los nodos especificados en las reglas (eso incluye casos en los que se repite el mismo nodo en varios lugares del xml)
+Notas: permite eliminar todos los nodos especificados en las reglas (eso incluye casos en los que se repite el mismo nodo en varios lugares del xml)
 https://github.com/Gurizzo/Quita-nodos-3000/releases/tag/0.1.0
