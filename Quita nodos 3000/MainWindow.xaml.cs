@@ -33,24 +33,41 @@ namespace Quita_nodos_3000
         {
             Configuracion configuracion = new Configuracion();
 
-            var configGuardada = configuracion.CargarConfig();
+            var configGuardada = Configuracion.CargarConfig();
 
             textBoxFinal.Text = configGuardada.DirectorioFinal;
             textBoxInicial.Text = configGuardada.DirectorioInicio;
+            foreach (var item in configGuardada.Xpaths)
+            {
+                listXpath.Items.Add(item);
+            }
 
         }
 
         private void btnGuardar_Click(object sender, RoutedEventArgs e)
         {
-            List<string> list = new List<string>();
-            list.Add("pruebita");
-            Configuracion configuracion = new Configuracion()
+            try
             {
-                DirectorioFinal = textBoxFinal.Text,
-                DirectorioInicio = textBoxInicial.Text,
-                Xpaths = list
-            };
-            configuracion.GuardarConfiguracion();
+                List<string> list = new List<string>();
+                foreach (var item in listXpath.Items)
+                {
+                    list.Add(item.ToString());
+                }
+                Configuracion configuracion = new Configuracion()
+                {
+                    DirectorioFinal = textBoxFinal.Text,
+                    DirectorioInicio = textBoxInicial.Text,
+                    Xpaths = list
+                };
+                configuracion.GuardarConfiguracion();
+
+                System.Windows.MessageBox.Show("Configuracion guardada con exito.", "Configuracion", MessageBoxButton.OK, MessageBoxImage.Information);
+            }
+            catch (Exception ex)
+            {
+
+                System.Windows.MessageBox.Show(ex.Message, "Error interno", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
 
         }
         private void btnInicial_Click(object sender, RoutedEventArgs e)
@@ -71,5 +88,41 @@ namespace Quita_nodos_3000
             textBoxFinal.Text = dialog.SelectedPath;
         }
 
+        private void button_Click(object sender, RoutedEventArgs e)
+        {
+            listXpath.Items.Add(xpathtxt.Text);
+            xpathtxt.Text = "";
+        }
+
+        private void button1_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                listXpath.Items.RemoveAt(listXpath.Items.IndexOf(listXpath.SelectedItem));
+            }
+            catch (Exception ex)
+            {
+
+                System.Windows.MessageBox.Show(ex.Message, "Error interno", MessageBoxButton.OK, MessageBoxImage.Error);
+            }
+            
+
+        }
+
+        private void btnEjecutar_Click(object sender, RoutedEventArgs e)
+        {
+            try
+            {
+                Servicios.QuitarNodos(listXpath.Items, textBoxInicial.Text, textBoxFinal.Text);
+                System.Windows.MessageBox.Show("Nodos removidos con exito.","Tarea completada",MessageBoxButton.OK);
+            }
+            catch (Exception ex)
+            {
+                System.Windows.MessageBox.Show(ex.Message, "Error interno", MessageBoxButton.OK, MessageBoxImage.Error);
+                
+            }
+            
+           
+        }
     }
 }

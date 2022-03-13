@@ -5,28 +5,36 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Quita_nodos_3000"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="Quita nodos 3000" Height="450" Width="800">
     <Grid>
-        <Label x:Name="label" Content="Localizacion inicial" HorizontalAlignment="Left" Margin="40,39,0,0" VerticalAlignment="Top"/>
-        <Label x:Name="label1" Content="Localizacion final" HorizontalAlignment="Left" Margin="40,87,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="textBoxInicial" HorizontalAlignment="Left" Margin="180,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="511"/>
-        <TextBox x:Name="textBoxFinal" HorizontalAlignment="Left" Margin="180,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="511"/>
-        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="193,217,0,0" VerticalAlignment="Top" Click="btnGuardar_Click" Height="61" Width="123"/>
-        <Button x:Name="btnEjecutar" Content="Ejecutar" HorizontalAlignment="Left" Margin="538,217,0,0" VerticalAlignment="Top" Height="61" Width="102"/>
-        <Label x:Name="label2" Content="Xpath del nodo a quitar" HorizontalAlignment="Left" Margin="30,151,0,0" VerticalAlignment="Top"/>
-        <TextBox x:Name="xpathtxt" HorizontalAlignment="Left" Margin="180,159,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="511"/>
-        <Button x:Name="btnInicial" Click="btnInicial_Click" HorizontalAlignment="Left" Margin="705,45,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="26" Width="29">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="27*"/>
+            <ColumnDefinition Width="21*"/>
+            <ColumnDefinition Width="55*"/>
+            <ColumnDefinition Width="697*"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="label" Content="Localizacion inicial" HorizontalAlignment="Left" Margin="13,39,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Column="1"/>
+        <Label x:Name="label1" Content="Localizacion final" HorizontalAlignment="Left" Margin="13,87,0,0" VerticalAlignment="Top" Grid.ColumnSpan="3" Grid.Column="1"/>
+        <TextBox x:Name="textBoxInicial" HorizontalAlignment="Left" Margin="77,47,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="511" Grid.Column="3"/>
+        <TextBox x:Name="textBoxFinal" HorizontalAlignment="Left" Margin="77,95,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="511" Grid.Column="3"/>
+        <Button x:Name="btnGuardar" Content="Guardar" HorizontalAlignment="Left" Margin="17,346,0,0" VerticalAlignment="Top" Click="btnGuardar_Click" Height="61" Width="123" Grid.ColumnSpan="4"/>
+        <Button x:Name="btnEjecutar" Content="Ejecutar" HorizontalAlignment="Left" Margin="66,346,0,0" VerticalAlignment="Top" Height="61" Width="129" Click="btnEjecutar_Click" Grid.Column="3"/>
+        <TextBox x:Name="xpathtxt" HorizontalAlignment="Left" Margin="253,197,0,0" TextWrapping="Wrap" Text="" VerticalAlignment="Top" Width="179" Grid.Column="3"/>
+        <Button x:Name="btnInicial" Click="btnInicial_Click" HorizontalAlignment="Left" Margin="602,45,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="26" Width="29" Grid.Column="3">
             <StackPanel>
                 <Image Source="/Iconos/blue_download_alt_folder_12391.png" Width="20" Height="20" />
             </StackPanel>
 
         </Button>
-        <Button x:Name="btnFinal" HorizontalAlignment="Left" Margin="705,89,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="26" Width="29" Click="btnFinal_Click">
+        <Button x:Name="btnFinal" HorizontalAlignment="Left" Margin="602,89,0,0" VerticalAlignment="Top" Background="{x:Null}" Height="26" Width="29" Click="btnFinal_Click" Grid.Column="3">
             <StackPanel Orientation="Horizontal">
                 <Image Source="/Iconos/blue_download_alt_folder_12391.png" Width="20" Height="20" />
             </StackPanel>
 
         </Button>
+        <ListBox x:Name="listXpath" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="252,226,10,10" Grid.Column="3"/>
+        <Button x:Name="button" Content="Agregar xpath" HorizontalAlignment="Left" Margin="447,196,0,0" VerticalAlignment="Top" Height="21" Click="button_Click" Grid.Column="3"/>
+        <Button x:Name="button1" Content="Eliminar seleccion" HorizontalAlignment="Left" Margin="548,197,0,0" VerticalAlignment="Top" Width="102" Height="21" Click="button1_Click" Grid.Column="3"/>
 
     </Grid>
 </Window>

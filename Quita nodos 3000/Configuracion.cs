@@ -33,7 +33,7 @@ namespace Quita_nodos_3000
             }
         }
         
-        internal Configuracion CargarConfig()
+        internal static Configuracion CargarConfig()
         {
             string directorio = AppDomain.CurrentDomain.BaseDirectory;
             XmlSerializer ser = new XmlSerializer(typeof(Configuracion));
