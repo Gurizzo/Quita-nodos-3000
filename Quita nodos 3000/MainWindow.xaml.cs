@@ -33,14 +33,18 @@ namespace Quita_nodos_3000
         {
             Configuracion configuracion = new Configuracion();
 
-            var configGuardada = Configuracion.CargarConfig();
 
-            textBoxFinal.Text = configGuardada.DirectorioFinal;
-            textBoxInicial.Text = configGuardada.DirectorioInicio;
-            foreach (var item in configGuardada.Xpaths)
+            var configGuardada = Configuracion.CargarConfig();
+            if (configGuardada != null)
             {
-                listXpath.Items.Add(item);
+                textBoxFinal.Text = configGuardada.DirectorioFinal;
+                textBoxInicial.Text = configGuardada.DirectorioInicio;
+                foreach (var item in configGuardada.Xpaths)
+                {
+                    listXpath.Items.Add(item);
+                }
             }
+            
 
         }
 
