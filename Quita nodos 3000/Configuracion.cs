@@ -21,14 +21,6 @@ namespace Quita_nodos_3000
         [XmlElement(ElementName = "Xpaths")]
         public List<string> Xpaths { get; set; }
 
-        [XmlAttribute(AttributeName = "xsi")]
-        public string Xsi { get; set; }
-
-        [XmlAttribute(AttributeName = "xsd")]
-        public string Xsd { get; set; }
-
-        [XmlText]
-        public string Text { get; set; }
 
         internal void GuardarConfiguracion()
         {
